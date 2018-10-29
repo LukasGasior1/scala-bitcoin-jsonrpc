@@ -16,8 +16,7 @@ final case class Block(
                       bits: String,
                       difficulty: Long,
                       chainwork: String,
-                      previousblockhash: String,
-                      nextblockhash: String
+                      previousblockhash: String
                       ) {
 
   override def toString(): String = {
@@ -35,7 +34,6 @@ final case class Block(
        |  difficulty:        $difficulty
        |  chainwork:         $chainwork
        |  previousblockhash: $previousblockhash
-       |  nextblockhash:     $nextblockhash
        |  tx: [
        |    ${tx.mkString(",\n    ")}
        |  ]
@@ -45,5 +43,5 @@ final case class Block(
 }
 
 object Block extends DefaultJsonProtocol {
-  implicit val blockFormat = jsonFormat15(Block.apply)
+  implicit val blockFormat = jsonFormat14(Block.apply)
 }
